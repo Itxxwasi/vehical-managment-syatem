@@ -3,6 +3,8 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 function BookInspectionForm() {
     const searchParams = useSearchParams();
     const vehicleIdParam = searchParams.get('vehicleId');
