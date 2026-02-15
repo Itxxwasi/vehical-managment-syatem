@@ -1,0 +1,51 @@
+{
+  "name": "Vehicle Management System",
+  "description": "A comprehensive vehicle management and insurance system built with Next.js",
+  "repository": "https://github.com/Itxxwasi/vehical-managment-syatem",
+  "logo": "https://cdn.jsdelivr.net/npm/heroicons@2.0.18/24/outline/truck.svg",
+  "keywords": [
+    "nextjs",
+    "vehicle-management",
+    "insurance",
+    "mongodb",
+    "typescript"
+  ],
+  "website": "https://github.com/Itxxwasi/vehical-managment-syatem",
+  "success_url": "/login",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": {
+      "description": "MongoDB Atlas connection string (e.g., mongodb+srv://username:password@cluster.mongodb.net/vehicle_management)",
+      "required": true
+    },
+    "NEXTAUTH_SECRET": {
+      "description": "Secret key for NextAuth.js session encryption (generate with: openssl rand -base64 32)",
+      "required": true,
+      "generator": "secret"
+    },
+    "NEXTAUTH_URL": {
+      "description": "Full URL of your Heroku app (e.g., https://your-app-name.herokuapp.com)",
+      "required": true
+    },
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [],
+  "scripts": {
+    "postdeploy": "npm run seed"
+  },
+  "stack": "heroku-22"
+}
