@@ -1,0 +1,5 @@
+*.md
+.git
+.gitignore
+.env.local
+vehile project stracture.jpeg
