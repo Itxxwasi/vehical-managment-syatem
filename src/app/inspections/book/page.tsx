@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function BookInspection() {
+function BookInspectionForm() {
     const searchParams = useSearchParams();
     const vehicleIdParam = searchParams.get('vehicleId');
     const [vehicles, setVehicles] = useState<any[]>([]);
@@ -93,5 +93,19 @@ export default function BookInspection() {
                 </form>
             </div>
         </div>
+    );
+}
+
+export default function BookInspection() {
+    return (
+        <Suspense fallback={
+            <div className="container fade-in" style={{ paddingTop: '120px' }}>
+                <div className="glass" style={{ padding: '40px', maxWidth: '600px', margin: '0 auto' }}>
+                    <p>Loading...</p>
+                </div>
+            </div>
+        }>
+            <BookInspectionForm />
+        </Suspense>
     );
 }
